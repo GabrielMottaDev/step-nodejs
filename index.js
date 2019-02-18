@@ -13,4 +13,4 @@ var server = http.createServer(
 
 // definindo porta do servidor
 server.listen(7000);
-console.log("Servidor rodando na porta 7000");
+console.log("Serviço HelloWorld\nRodando na porta 7000");
