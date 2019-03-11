@@ -1,0 +1,10 @@
+{
+    "name": "cadastro-cliente",
+    "version": "0.0.1",
+    "description": "app de cadastro de clientes em mysql",
+    "dependencies": {
+        "express": "^4.16.4",
+        "http": "0.0.0",
+        "mysql": "^2.16.0"
+    }
+}
