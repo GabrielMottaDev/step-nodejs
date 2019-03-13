@@ -8,20 +8,7 @@ app.get('/', function(req, res){
 
 app.post('/', function(req, res){
     req.on("end", function(){
-        res.writeHead(200, {"Content-Type":"text/html"});
-
-        res.end(`
-            <!DOCTYPE html>
-            <html>
-                <head>
-                    <title></title
-                </head>
-                <body>
-                    <p>${body}</p>
-                </body>
-
-            </html
-        `);
+        console.log(res);
     });
 });
 
