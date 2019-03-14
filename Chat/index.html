@@ -11,28 +11,43 @@
       #messages { list-style-type: none; margin: 0; padding: 0; }
       #messages li { padding: 5px 10px; }
       #messages li:nth-child(odd) { background: #eee; }
-      #messages { margin-bottom: 40px }
     </style>
   </head>
   <body>
+    <script>
+      var nome = prompt("Insira um nickname:", "Gabriel");
+    </script>
     <ul id="messages"></ul>
     <form action="">
       <input id="m" autocomplete="off" /><button>Send</button>
     </form>
-    <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
-    <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script
+  src="http://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+
     <script>
-      $(function () {
-        var socket = io();
-        $('form').submit(function(){
-          socket.emit('chat message', $('#m').val());
-          $('#m').val('');
-          return false;
-        });
-        socket.on('chat message', function(msg){
-          $('#messages').append($('<li>').text(msg));
-          window.scrollTo(0, document.body.scrollHeight);
-        });
+      // Porta é 25565 porque é a unica meu roteador está conseguindo abrir
+      var io = io('http://{IP}:{PORT}');
+      io.emit("login", nome);
+      io.on('login-success', function (socket) {
+        $('#messages').append($('<li>').text("Logado com sucesso"));
+      });
+      io.on('login-fail', function(socket){
+        $('#messages').append($('<li>').text("Servidor: Alguem já está usando seu nome, favor escolher outro!"));
+        nome = prompt("Insira um nickname:", "Gabriel");
+        io.emit("login", nome);
+      });
+      io.on('message', function (data) {
+         $('#messages').append($('<li>').text(data));
+      });
+      
+      $('form').submit(function(e){
+        e.preventDefault(); // prevents page reloading
+        io.emit('message', $('#m').val());
+        $('#m').val('');
+        return false;
       });
     </script>
   </body>
