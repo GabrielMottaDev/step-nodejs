@@ -64,7 +64,7 @@ function start() {
     console.log("[SOCKET] Conexão estabelecida com: " + socket.handshake.address.replace("::ffff:", ""));
 
     socket.on('cadastrar', function (nome, cpf) {
-      hasAluno("123.456.789-01", function (has) {
+      hasAluno(cpf, function (has) {
         if (!has) {
           addAluno(nome, cpf);
           socket.emit('success', nome);
