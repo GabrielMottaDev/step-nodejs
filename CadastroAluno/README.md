@@ -1,4 +1,4 @@
-# CadastroAluno
+# Cadastro Aluno
 Dependencias necessárias para o funcionamento:
 - express (^4.16.4)
 - fs (0.0.1-security)
