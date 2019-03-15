@@ -1,0 +1,10 @@
+{
+    "name": "first-react",
+    "version": "0.0.1",
+    "description": "my first react app",
+    "dependencies": {
+        "express": "^4.16.4",
+        "http": "0.0.0",
+        "react": "^16.8.4"
+    }
+}
