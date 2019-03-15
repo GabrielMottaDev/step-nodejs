@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Cadastro Aluno</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <form action="" method="post">
+        <label for="nome">Nome: </label>
+        <input id="nome" type="text" name="nome_field" value="Fulano">
+
+        <label for="cpf">CPF: </label>
+        <input id="cpf" type="text" name="cpf_field" value="123.456.789-01">
+        <input type="submit" value="CADASTRAR">
+    </form>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+    <script>
+        var io = io('http://{IP}:{PORT}');
+
+        $('form').submit(function (e) {
+            e.preventDefault(); // prevents page reloading
+            io.emit('cadastrar', $('#nome').val(), $('#cpf').val());
+            $('#nome').val('');
+            $('#cpf').val('');
+            return false;
+        });
+
+        io.on('error-already-exist', function(data){
+            alert("Já existe um aluno cadastrado com o cpf: " + data + "!");
+        });
+
+        io.on('success', function(data){
+            alert("Aluno " + data + " cadastrado com sucesso!");
+        });
+    </script>
+</body>
+
+</html>
