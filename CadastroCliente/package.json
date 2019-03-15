@@ -1,8 +1,0 @@
-{
-    "name": "cadastro-cliente",
-    "version": "0.0.1",
-    "description": "app de cadastro de clientes em mysql",
-    "dependencies": {
-        "mysql": "^2.16.0"
-    }
-}
