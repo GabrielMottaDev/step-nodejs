@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Cadastro Materiais Escolares</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <form action="" method="post">
+        <label for="nome">Nome: </label>
+        <input id="nome" type="text" name="nome_field" value="Cola BIC">
+
+        <label for="categoria">Cateogria: </label>
+        <select id="categoria">
+            <option value="Colas" selected>Colas</option>
+            <option value="Papeis">Papeis</option>
+            <option value="Corte">Corte</option>
+            <option value="Escrita">Escrita</option>
+        </select>
+
+        <label for="preco">Preço: </label>
+        <input id="preco" type="number" name="preco_field" value="2.50">
+
+        <input type="submit" value="CADASTRAR">
+    </form>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+    <script>
+        var io = io('http://{IP}:{PORT}');
+
+        $('form').submit(function (e) {
+            e.preventDefault(); // prevents page reloading
+            io.emit('cadastrar', $('#nome').val(), $('#categoria').val(), $('#preco').val());
+            $('#nome').val('');
+            $('#categoria').val('');
+            $('#preco').value('');
+            return false;
+        });
+
+        io.on('error-already-exist', function (nome, categoria) {
+            alert("Já existe um material cadastrado com o nome " + nome + " na categoria " + categoria + "!");
+        });
+
+        io.on('success', function (nome) {
+            alert("Material " + nome + " cadastrado com sucesso!");
+        });
+    </script>
+</body>
+
+</html>
