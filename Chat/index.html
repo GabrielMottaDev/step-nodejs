@@ -82,12 +82,13 @@
     }
   </script>
   <script>
-    if (!hasCookie("nome")) {
+    var nome = prompt("Insira um nickname:", "Gabriel");
+    /*if (!hasCookie("nome")) {
       var nome = prompt("Insira um nickname:", "Gabriel");
       setCookie("nome", nome, 1);
     } else {
       nome = getCookie("nome");
-    }
+    }*/
   </script>
   <ul id="messages"></ul>
   <form action="">
@@ -105,12 +106,13 @@
     });
     io.on('login-fail', function (socket) {
       $('#messages').append($('<li>').text("Servidor: Alguem já está usando seu nome, favor escolher outro!"));
-      if (!hasCookie("nome")) {
+      /*if (!hasCookie("nome")) {
         nome = prompt("Insira um nickname:", "Gabriel");
         setCookie("nome", nome, 1);
       } else {
         nome = getCookie("nome");
-      }
+      }*/
+	  nome = prompt("Insira um nickname:", "Gabriel");
       io.emit("login", nome);
     });
     io.on('message', function (data) {
