@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import { Link } from 'react-router-dom';
 import Header from './Header';
 import Footer from './Footer';
 
