@@ -4,17 +4,17 @@ import './App.css';
 import Header from './Header';
 import Footer from './Footer';
 
-class Sobre extends Component {
+class Contato extends Component {
     render() {
         return (
             <div>
                 <Header/>
                 <img src={logo} className="App-logo" alt="logo" />
-                <h2>Sobre Page</h2>
+                <h2>Contato Page</h2>
                 <Footer/>
             </div>
         );
     }
 }
 
-export default Sobre;
+export default Contato;
