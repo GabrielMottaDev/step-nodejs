@@ -1,0 +1,18 @@
+header {
+    background-color: #282c34;
+    min-height: 30px;
+    max-height: 20vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+    position: sticky;
+}
+
+header * {
+    margin: 0px 40px 0px 40px;
+    text-decoration: none;
+    color: white;
+}
