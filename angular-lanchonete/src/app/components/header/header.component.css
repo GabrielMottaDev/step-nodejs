@@ -4,10 +4,7 @@
 
 header {
     background-color: #282c34;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
+    
     font-size: calc(10px + 2vmin);
     color: white;
     position: sticky;
@@ -15,8 +12,35 @@ header {
     height: 5vh;
 }
 
+header > nav {
+    margin-right: 25%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+header > div {
+    margin-left: -20px;
+    float: left;
+    display: block;
+}
+
+header > div > img {
+    margin-right: -30px;
+}
+
+header > div > a {
+    font-size: 20pt;
+}
+
 header * {
     margin: 0px 40px 0px 40px;
     text-decoration: none;
     color: white;
+}
+
+img {
+    float: left;
+    margin: 0 auto;
 }

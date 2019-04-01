@@ -8,6 +8,30 @@
     height: 90vh;
 }
 
-.content h2 {
+.content h1, h2, h3, h4, h5 {
     text-align: center;
+}
+
+.franquias {
+    margin-top: 30px;
+}
+
+.franquias p {
+    font-size: 14pt;
+}
+
+.flex-container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+.flex-container>div {
+    background-color: #f1f1f1;
+    width: 95%;
+    height: 50px;
+    margin: 10px 0px 10px 0px;
+    text-align: center;
+    line-height: 50px;
+    font-size: 30px;
 }

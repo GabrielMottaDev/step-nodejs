@@ -8,6 +8,10 @@
     height: 90vh;
 }
 
+.content form {
+    margin-top: 50px;
+}
+
 .content h2 {
     text-align: center;
 }
@@ -22,6 +26,10 @@ form {
     margin: auto;
     width: 50%;
     background-color: rgb(214, 214, 214);
+}
+
+textarea {
+    height: 200px;
 }
 
 .col-md-4 {

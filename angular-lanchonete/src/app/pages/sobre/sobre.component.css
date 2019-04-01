@@ -11,3 +11,7 @@
 .content h2 {
     text-align: center;
 }
+
+.content p {
+    margin: 15px;  
+}
